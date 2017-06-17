@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+ <html lang="sv">
+  <head>
+   <!--Gör så att man kan bl a använda sej utav svenska tecken.-->
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--Meta namn som gör det lättare för mobila enheter så som tablets 
+   och mobiltelefoner att kunna zooma in och utnyttja det specificerade
+   bredderna för dessa enheter-->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="webbshop.css" />
+	<!--[if IE]>
+	 <link rel="stylesheet" href="iewebbshop.css
+	<![endif]-->
+	 <title>Tack för registreringen</title>
+	 <!--en beskrivning för att underlätta för sökmotorer-->
+	 <meta name="description" content="Säljer datorer, datordelar och tillbehör. Vi har även möjlighet för felsökning, reparation och installation.">
+	 <!--php koden för att kunna ansluta till min databas
+	 Här har jag då skapat en vektor som pekar på min databas-->
+	 <?php $mysql_pekare = mysqli_connect("192.168.1.132", "Nagelfar","Kronan90", "nagelfar"); 
+  if (mysqli_connect_errno()) 
+  {
+  echo "Något gick fel: " . mysqli_connect_error(); 
+  }
+    //Hade problem med svenska tecken så här kommer en kod för att fixa detta//
+  mysqli_query($mysql_pekare, "SET NAMES 'utf8'") or die(mysqli_error());
+  ?>
+  </head>
+<body>	
+<div id="wrapper">
+<header>
+<img src="dator.jpg" width="80" height="80" alt="Företagslogga">
+<h1>Nagelfars Webbshop</h1>
+</header>
+<main>
+<!--script för sökfunktionen, verkar dock inte fungera som jag ville-->
+<div id="meny">
+ <button onclick="myFunction()">Sök</button><input type="search" id="mySearch" placeholder="Vad letar du efter?">
+ <script>
+function myFunction() {
+    var x = document.getElementById("mySearch").placeholder;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+<!--menyraden för den övre menyn-->
+ <ul>
+  <li><a href="webbshop.html">Hem</a></li>
+  <li><a href="#">Om Oss</a></li>
+  <li><a href="#">Kontakt</a></li>
+  <li><a href="contact.html">Registrering</a></li>
+ </ul>
+</div>
+<!--Skapade ett identiskt element för positioneringen.
+för de lägre upplösningarna 800px och 480px.
+Se CSS filen för mer info--> 
+ <div id="nav">
+  <!--navigeringsmenyn för produkter med undermenyer
+ Detta element används för bredderna 1280px samt 960px.-->
+ <ul>
+   <li><a href="#">Kompletta datorer</a>
+    <ul>
+	 <li><a href="#">Gaming</a>
+	 <li><a href="#">Företag</a></li>
+	 <li><a href="#">Persondator</a></li>
+	 <li><a href="#">Bärbara</a></li>
+	</ul> 
+   <li><a href="#">Datordelar</a>
+    <ul>
+	 <li><a href="gpu.html">Grafikkort</a></li>
+	 <li><a href="monitor.html">Skärmar</a></li>
+	</ul> 
+   <li><a href="#">Datortillbehör</a>   
+   </li>	
+  </ul>
+ </div>
+ <nav>
+ <!--navigeringsmenyn för produkter med undermenyer
+ Detta element används för bredderna 800px och 480px.-->
+<ul>
+   <li><a href="#"><img src="menu.png" width="20" height="20" alt="Menu"/></a>
+    <ul>
+   <li><a href="#">Kompletta datorer</a>
+    <ul>
+	</ul>
+	 <li><a href="#">Gaming</a>
+	 <li><a href="#">Företag</a></li>
+	 <li><a href="#">Persondator</a></li>
+	 <li><a href="#">Bärbara</a></li>
+	</ul> 
+	<ul>
+   <li><a href="#">Datordelar</a>
+   </ul>
+    <ul>
+	 <li><a href="gpu.html">Grafikkort</a></li>
+	 <li><a href="monitor.html">Skärmar</a></li>
+	</ul>
+	<ul>
+   <li><a href="#">Datortillbehör</a>   
+   </ul>
+   </li>	
+  </ul>
+ </nav>	
+<!-- Samma sak här skapade jag ett identiskt element för positioneringen.
+för de lägre upplösningarna 800px och 480px.
+Se CSS filen för mer info-->  
+<div id="aside">
+<!--menyn för den högra sidan
+Detta element används för bredderna 1280px och 960px.-->
+ <ul>
+  <li><a href="#">Kampanjer</a></li>
+  <li><a href="#">Heta produkter</a></li>
+ </ul>
+</div>
+<!--mittensektionen för all produktinfo/bilder och dylig info--> 
+<section>
+<?php
+//Här är då php koden som kommer ta uppgifterna från form fälten på contact.php//
+//och lägga in en ny kund i databasen och vilka uppgifter som ska bli lagrade.//
+$query = "INSERT INTO Kund(Fnamn, Enamn, Telefon, Postnummer, Email, Adress, Personnr)
+VALUES('$_GET[fnamn]', '$_GET[enamn]', '$_GET[telefon]', '$_GET[postnummer]', '$_GET[email]', '$_GET[adress]', '$_GET[personnr]')";
+//Här har vi då våran pekare som pekar på databasen och//
+//query är ju att jag vill lägga till info i tabellen Kund.//
+if (!mysqli_query($mysql_pekare,$query))  
+	{  
+	die('Error: ' . mysqli_error($mysql_pekare));  
+	}
+	echo "Hej " . $_GET["fnamn"] . " och välkommen till våran sida "; ?><br>
+ </section>
+  <aside>
+<!--menyn för den högra sidan. Detta element används 
+för bredderna 800px och 480px.-->
+ <ul>
+  <li><a href="#">Kampanjer</a></li>
+  <li><a href="#">Heta produkter</a></li>
+ </ul>
+</aside>
+ <!--menyn för sociala medier finns samlade här-->
+<div id="social">
+ <ul>
+  <li><a href="http://www.facebook.com" target="_blank"><img src="face.jpg" width="20" height="20" alt="Facebooklogo" /> Facebook</a></li>
+  <li><a href="http://www.twitter.com" target="_blank"><img src="twitter.jpg" width="20" height="20" alt="Twitterlogo" /> Twitter</a></li>
+  <li><a href="http://www.instagram.com" target="_blank"><img src="instagram.jpg" width="20" height="20" alt="Instagramlogo" /> Instagram</a></li>
+ </ul> 
+</div>
+</main>
+<!--vanlig footer för copyright och annan info-->
+<footer>
+© Nagelfars datorer
+ </footer>
+  </div>
+ </body>
+</html>

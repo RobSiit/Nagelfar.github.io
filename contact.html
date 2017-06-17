@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+ <html lang="sv">
+  <head>
+   <!--Gör så att man kan bl a använda sej utav svenska tecken.-->
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--Meta namn som gör det lättare för mobila enheter så som tablets 
+   och mobiltelefoner att kunna zooma in och utnyttja det specificerade
+   bredderna för dessa enheter-->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="webbshop.css" />
+	<!--[if IE]>
+	 <link rel="stylesheet" href="iewebbshop.css
+	<![endif]-->
+	 <title>Registrera dig hos Nagelfar</title>
+	 <!--Annan text för sökmotoroptimering-->
+	 <meta name="description" content="Registrera dig för ytterligare hjälp men även för nyhetsbrev och kampanjer.">
+	  <script>
+<!--function är satt till att kolla att alla fält är ifyllda-->
+ function checkFields() {
+missinginfo = "";
+<!--för att ta reda på om de olika fälten är tomma eller inte-->
+if (document.kontakt.namn.value == "") {
+missinginfo += "\n - Namn";
+}
+if (document.kontakt.adress.value == "") {
+missinginfo += "\n - Adress";
+}
+//här har jag även satt in att det ska sökas på @ och .
+//fältet med e-mail. Det ska vara satt så att det måste finnas
+//ett @ med i texten samt att det ska finnas 1 punkt . efter @
+if ((document.kontakt.email.value == "") || 
+(document.kontakt.email.value.indexOf('@') == -1) || 
+(document.kontakt.email.value.indexOf('.') == -1)) {
+missinginfo += "\n - Epostadress";
+}
+if(document.kontakt.telefon.value == "") {
+missinginfo += "\n - telefon";
+}
+//Vad som skall dyka upp i varningsrutan om man missat
+//att fylla i något fält
+if (missinginfo != "") {
+missinginfo ="_____________________________\n" +
+"Du har inte fyllt i fälten:\n" +
+missinginfo + "\n_____________________________" +
+"\nFyll i de angivna fälten innan du skickar formuläret!";
+alert(missinginfo);
+return false;
+}
+else return true;
+}
+</script>
+<!--Förberett så att sidorna kan "connecta" till databasen-->
+<?php $mysql_pekare = mysqli_connect("192.168.1.132", "Nagelfar","Kronan90", "nagelfar"); 
+  if (mysqli_connect_errno()) 
+  {
+  echo "Något gick fel: " . mysqli_connect_error(); 
+  }
+    //Hade problem med svenska tecken så här kommer en kod för att fixa detta//
+  mysqli_query($mysql_pekare, "SET NAMES 'utf8'") or die(mysqli_error());
+  ?>
+    </head>
+<body>	
+<div id="wrapper">
+<header>
+<img src="dator.jpg" width="80" height="80" alt="Företagslogga">
+<h1>Nagelfars Webbshop</h1>
+</header>
+<main>
+<!--script för sökfunktionen, verkar dock inte fungera som jag ville-->
+<div id="meny">
+ <button onclick="myFunction()">Sök</button><input type="search" id="mySearch" placeholder="Vad letar du efter?">
+<!--menyraden för den övre menyn-->
+ <ul>
+  <li><a href="webbshop.html">Hem</a></li>
+  <li><a href="#">Om Oss</a></li>
+  <li><a href="#">Kontakt</a></li>
+  <li><a href="contact.html">Registrering</a></li>
+ </ul>
+</div>
+<!--Skapade ett identiskt element för positioneringen.
+för de lägre upplösningarna 800px och 480px.
+Se CSS filen för mer info--> 
+ <div id="nav">
+  <!--navigeringsmenyn för produkter med undermenyer
+ Detta element används för bredderna 1280px samt 960px.-->
+ <ul>
+   <li><a href="#">Kompletta datorer</a>
+    <ul>
+	 <li><a href="#">Gaming</a>
+	 <li><a href="#">Företag</a></li>
+	 <li><a href="#">Persondator</a></li>
+	 <li><a href="#">Bärbara</a></li>
+	</ul> 
+   <li><a href="#">Datordelar</a>
+    <ul>
+	 <li><a href="gpu.html">Grafikkort</a></li>
+	 <li><a href="monitor.html">Skärmar</a></li>
+	</ul> 
+   <li><a href="#">Datortillbehör</a>   
+   </li>	
+  </ul>
+ </div>
+ <nav>
+ <!--navigeringsmenyn för produkter med undermenyer
+ Detta element används för bredderna 800px och 480px.-->
+<ul>
+   <li><a href="#"><img src="menu.png" width="20" height="20" alt="Menu"/></a>
+    <ul>
+  <li><a href="#">Kompletta datorer</a>
+    <ul>
+	</ul>
+	 <li><a href="#">Gaming</a>
+	 <li><a href="#">Företag</a></li>
+	 <li><a href="#">Persondator</a></li>
+	 <li><a href="#">Bärbara</a></li>
+	</ul> 
+	<ul>
+   <li><a href="#">Datordelar</a>
+   </ul>
+    <ul>
+	 <li><a href="gpu.html">Grafikkort</a></li>
+	 <li><a href="monitor.html">Skärmar</a></li>
+	</ul>
+	<ul>
+   <li><a href="#">Datortillbehör</a>   
+   </ul> 
+   </li>	
+  </ul>
+ </nav>
+<!-- Samma sak här skapade jag ett identiskt element för positioneringen.
+för de lägre upplösningarna 800px och 480px.
+Se CSS filen för mer info-->  
+<div id="aside">
+<!--menyn för den högra sidan
+Detta element används för bredderna 1280px och 960px.-->
+ <ul>
+  <li><a href="#">Kampanjer</a></li>
+  <li><a href="#">Heta produkter</a></li>
+ </ul>
+</div>
+<!--mittensektionen för all produktinfo/bilder och dylig info--> 
+<section>
+<h3>Var vänlig fyll i formuläret</h3>
+<!--vad som ska hända med formulärets olika delar-->
+<div id="form">
+<form id="kontakt" method="GET" action="tack.html" onSubmit="return checkFields();">
+<!--de olika fälten i formuläret-->
+Förnamn:<br>
+<input type="text" id="fnamn" name="fnamn" size="40">
+<br>
+Efternamn:<br>
+<input type="text" id="enamn" name="enamn" size="40">
+<br>
+Telefon:<br>
+<input type="text" id="telefon" name="telefon" size="40">
+<br>
+<!--Lagt till postnummer och det skall vara 5 siffror,
+mellanslag fungerar mellan 3:e och 4:e siffran men inte ett måste-->
+Postnummer: (123 45)<br>
+<input name="postnummer" type="text" pattern="\d{3}\s?\d{2}" size="40">
+<br>
+E-postadress:<br>
+<input name="email" type="text" size="40">
+<br>
+Adress:<br>
+<input name="adress" type="text" id="adress" size="40">
+<br>
+<!--ett tappert försök att få till någon sorts validering
+utav ett personnummer. Pattern vill inte fungera som jag ville-->
+Personnummer (12 siffror):<br>
+<input type="text" name="personnr" pattern="\d{12}" size="40" required>
+<br>
+<br>
+<!--själva skicka knappen. Inga konstigheter med denna-->
+<input name="SUBMIT" type="SUBMIT">
+   </form>
+  </div> 
+ </section>
+  <aside>
+<!--menyn för den högra sidan. Detta element används 
+för bredderna 800px och 480px.-->
+ <ul>
+  <li><a href="#">Kampanjer</a></li>
+  <li><a href="#">Heta produkter</a></li>
+ </ul>
+</aside>
+ <!--menyn för sociala medier finns samlade här-->
+<div id="social">
+ <ul>
+  <li><a href="http://www.facebook.com" target="_blank"><img src="face.jpg" width="20" height="20" alt="Facebooklogo" /> Facebook</a></li>
+  <li><a href="http://www.twitter.com" target="_blank"><img src="twitter.jpg" width="20" height="20" alt="Twitterlogo" /> Twitter</a></li>
+  <li><a href="http://www.instagram.com" target="_blank"><img src="instagram.jpg" width="20" height="20" alt="Instagramlogo" /> Instagram</a></li>
+ </ul> 
+</div>
+</main>
+<!--vanlig footer för copyright och annan info-->
+<footer>
+© Nagelfars datorer
+ </footer>
+  </div>
+ </body>
+</html>

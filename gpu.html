@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+ <html lang="sv">
+  <head>
+   <!--Gör så att man kan bl a använda sej utav svenska tecken.-->
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--Meta namn som gör det lättare för mobila enheter så som tablets 
+   och mobiltelefoner att kunna zooma in och utnyttja det specificerade
+   bredderna för dessa enheter-->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="webbshop.css" /> 
+	 <title>Nagelfars Datorer</title>
+	 <!--en beskrivning för att underlätta för sökmotorer-->
+	 <meta name="description" content="Säljer datorer, datordelar och tillbehör. Vi har även möjlighet för felsökning, reparation och installation.">
+	 <!--php koden för att kunna koppla upp sig mot databasen nagelfar-->
+	 <?php $mysql_pekare = mysqli_connect("192.168.1.132", "Nagelfar","Kronan90", "nagelfar"); 
+  if (mysqli_connect_errno()) 
+  {
+  echo "Något gick fel: " . mysqli_connect_error(); 
+  }
+  //Hade problem med svenska tecken så här kommer en kod för att fixa detta//
+  mysqli_query($mysql_pekare, "SET NAMES 'utf8'") or die(mysqli_error());
+  ?>
+    </head>
+<body>	
+<div id="wrapper">
+<header>
+<img src="dator.jpg" width="80" height="80" alt="Företagslogga">
+<h1>Nagelfars Webbshop</h1>
+</header>
+<main>
+<!--script för sökfunktionen, verkar dock inte fungera som jag ville-->
+<div id="meny">
+ <button onclick="myFunction()">Sök</button><input type="search" id="mySearch" placeholder="Vad letar du efter?">
+<!--menyraden för den övre menyn-->
+ <ul>
+  <li><a href="webbshop.html">Hem</a></li>
+  <li><a href="#">Om Oss</a></li>
+  <li><a href="#">Kontakt</a></li>
+  <li><a href="contact.html">Registrering</a></li>
+ </ul>
+</div>
+<!--Skapade ett identiskt element för positioneringen.
+för de lägre upplösningarna 800px och 480px.
+Se CSS filen för mer info--> 
+ <div id="nav">
+  <!--navigeringsmenyn för produkter med undermenyer
+ Detta element används för bredderna 1280px samt 960px.-->
+ <ul>
+   <li><a href="#">Kompletta datorer</a>
+    <ul>
+	 <li><a href="#">Gaming</a>
+	 <li><a href="#">Företag</a></li>
+	 <li><a href="#">Persondator</a></li>
+	 <li><a href="#">Bärbara</a></li>
+	</ul> 
+   <li><a href="#">Datordelar</a>
+    <ul>
+	 <li><a href="gpu.html">Grafikkort</a></li>
+	 <li><a href="monitor.html">Skärmar</a></li>
+	</ul> 
+   <li><a href="#">Datortillbehör</a>   
+   </li>	
+  </ul>
+ </div>
+ <nav>
+ <!--navigeringsmenyn för produkter med undermenyer
+ Detta element används för bredderna 800px och 480px.-->
+<ul>
+   <li><a href="#"><img src="menu.png" width="20" height="20" alt="Menu"/></a>
+    <ul>
+   <li><a href="#">Kompletta datorer</a>
+    <ul>
+	</ul>
+	 <li><a href="#">Gaming</a>
+	 <li><a href="#">Företag</a></li>
+	 <li><a href="#">Persondator</a></li>
+	 <li><a href="#">Bärbara</a></li>
+	</ul> 
+	<ul>
+   <li><a href="#">Datordelar</a>
+   </ul>
+    <ul>
+	 <li><a href="gpu.html">Grafikkort</a></li>
+	 <li><a href="monitor.html">Skärmar</a></li>
+	</ul>
+	<ul>
+   <li><a href="#">Datortillbehör</a>   
+   </ul>  
+   </li>	
+  </ul>
+ </nav>	
+<!-- Samma sak här skapade jag ett identiskt element för positioneringen.
+för de lägre upplösningarna 800px och 480px.
+Se CSS filen för mer info--> 
+<div id="aside">
+<!--menyn för den högra sidan
+Detta element används för bredderna 1280px och 960px.-->
+ <ul>
+  <li><a href="#">Kampanjer</a></li>
+  <li><a href="#">Heta produkter</a></li>
+ </ul>
+</div>
+<!--mittensektionen för all produktinfo/bilder och dylig info--> 
+<section>
+<h2>Produktinfo</h2>
+<h2>Kampanjer</h2>
+<h2>Sökresultat</h2>
+<h2>Bilder</h2>
+<br>
+<br>
+<br>
+<!-- Själva php koden för att visa rätt produkt under rätt flik
+Här har jag då alltså valt att visa allt från tabellen Produkter där produktID är 1-->
+<?php 
+$SQL = "SELECT * FROM Produkter where ProduktID =1"; 
+//$resultat är kopplat till pekaren som pekar på att det är från// 
+//min databas den ska hämta info från//
+  $resultat = mysqli_query($mysql_pekare,$SQL );
+  //while använder jag mig utav för att den ska kunna hämta informationen//
+  //som är lagrad i tabellerna//
+  while($rad = mysqli_fetch_array($resultat))
+  {  
+//Då ska den alltså skriva ut den informationen som jag har specificerat här nedan//
+  echo $rad['Tillverkare'] . " " . $rad['Produktnamn'] . " " . $rad['Pris'] . "<img src=". $rad['Produktbild'];
+  echo "<br>";
+  }
+  ?>
+ </section>
+  <aside>
+<!--menyn för den högra sidan. Detta element används 
+för bredderna 800px och 480px.-->
+ <ul>
+  <li><a href="#">Kampanjer</a></li>
+  <li><a href="#">Heta produkter</a></li>
+ </ul>
+</aside>
+ <!--menyn för sociala medier finns samlade här-->
+<div id="social">
+ <ul>
+  <li><a href="http://www.facebook.com" target="_blank"><img src="face.jpg" width="20" height="20" alt="Facebooklogo" /> Facebook</a></li>
+  <li><a href="http://www.twitter.com" target="_blank"><img src="twitter.jpg" width="20" height="20" alt="Twitterlogo" /> Twitter</a></li>
+  <li><a href="http://www.instagram.com" target="_blank"><img src="instagram.jpg" width="20" height="20" alt="Instagramlogo" /> Instagram</a></li>
+ </ul> 
+</div>
+</main>
+<!--vanlig footer för copyright och annan info-->
+<footer>
+© Nagelfars datorer
+ </footer>
+  </div>
+  <script>
+function myFunction() {
+    var x = document.getElementById("mySearch").placeholder;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+ </body>
+</html>

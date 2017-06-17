@@ -1,0 +1,1296 @@
+/*Här då min CSS fil för Nagelfars Webbshop. Denna har blivit
+modifierad för att få en mer responsiv sida där jag har
+skapat olika CSS villkor för olika upplösningar/bredder.
+Dessa är skapade med hjälp utav media querys och jag har
+specificerat för bredderna 1280px, 960px, 800px samt
+480px. Dessa bredder är för de mest använda skärmstorlekarna
+samt även för bärbara enheter så som tablets och smartphones.
+ 
+En wrapper för att tighta till sidan. Denna är då alltså
+för de lite större upplösningarna för upp till 1280px bredd.*/
+#wrapper{
+	width: 1280px;
+	margin: 0 auto;
+}
+/*satt en bestämd font för hela bodyn samt en scroll*/
+body{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll;
+	font-family: Arial;
+	font-size: 14px;
+}
+/*inget speciellt med headern(ännu)*/
+header{
+	height: 100px;
+	border: solid;
+	padding: 10px;
+}
+/*för att positionera loggan/bilden*/
+header img{
+	float: right;
+	margin: 10px;
+}
+h1{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 40px;
+}
+/*själva containern för nav, section och aside
+position är för social diven så jag kunde placera den i botten*/
+main{
+	height: 550px;
+	position: relative;
+	border: solid;
+}
+/*tar hand om hem, om oss, kontakt och sök*/
+#meny{
+	background-color: #222;
+	border: solid;
+	border-color: white;
+}
+/*för att positionera och styla listan*/
+#meny ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+/*för en horisontell menyrad*/
+#meny ul li{
+	display: inline-block;
+}
+/*få till en annan färg vid hover*/
+#meny ul li:hover{
+	background-color: #333;
+}
+/*bestämmer över färgen när man håller över
+länken men även storleken och att det ska
+vara block som visas samt att länkarna ej ska
+vara understrukna*/
+#meny ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#meny ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*för att positionera sökknappen och fältet*/
+#meny input{
+	float: right;
+	margin: 12px 0px;
+}
+#meny button{
+	float: right;
+	margin: 12px;
+	margin-left: 0px;
+}
+/*Då detta element enbart används utav 480px bredd
+så har jag då gömt detta element med display: none;
+Jag har då även valt att inte kommentera de gömda elementen.*/
+nav{
+	display: none;
+	width: 20%;
+	height: 80%;
+	overflow: hidden;
+	float: left;
+	background-color: #222;
+	border: solid;
+	border-color: white;
+	margin-top: -2px;
+}
+nav ul{
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+nav ul li{
+	display: block;
+}
+nav ul li:hover{
+	background-color: #333;
+}
+nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+nav ul li:hover ul{
+	display: block;
+}
+nav ul ul{
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+nav ul ul li{display: block;
+}
+nav ul ul li a,visited{
+	color: #ccc;
+}
+nav ul ul li a:hover{
+	color: #099;
+}
+/*Här kommer då styligen för 1280px bredden för
+själva produktmenyn. här bestäms färgen, höjden, bredden
+men även själva positioneringen. har även gjort lite småjusteringar
+för den grafiska biten med margin-top*/
+#nav{
+	display: block;
+	width: 20%;
+	height: 80%;
+	overflow: hidden;
+	float: left;
+	background-color: #222;
+	border: solid;
+	border-color: white;
+	margin-top: -2px;
+}
+/*bestämmer och positionerar över själva listan, 
+dvs kompletta datorer, datordelar samt datortillbehör*/
+#nav ul{
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+/*visar länkarna i block. kommande är de samma
+som för menyn ovan*/
+#nav ul li{
+	display: block;
+}
+#nav ul li:hover{
+	background-color: #333;
+}
+#nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*hur själva undermenyn ska se ut*/
+#nav ul li:hover ul{
+	display: block;
+}
+/*submenyns färgval samt hur brett fältet
+måste vara som minst men även att submenyn ska täcka
+övriga menyn när den öppnas med position absolute
+andra estetiska justeringar för att allt ska
+"smälta ihop"*/
+#nav ul ul{
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+/*samma bestämelser för submenyn som för den
+övre menyn*/
+#nav ul ul li{display: block;
+}
+#nav ul ul li a,visited{
+	color: #ccc;
+}
+#nav ul ul li a:hover{
+	color: #099;
+}
+/*mittenfältet vilket är tomt då jag inte
+har några produkter att visa ännu. bredden bestämd*/
+section{
+	width: 80%;
+	text-align: center;
+	background-color: white;
+}
+/*Detta element är då gömt på 1280px bredden då denna
+enbart används för 800 och 480px bredd
+Den är då gömd med display: none;*/
+aside{
+	display: none;
+	float: right;
+	height: 80%;
+	margin-right: 2px;
+	background-color: #222;
+	width: 20%;
+}
+aside ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+aside ul li{
+	display: block;
+}
+aside ul li:hover{
+	background-color: #333;
+}
+aside ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*Det är det här elementet jag använt mej av för 1280px bredd.
+Egentligen samma regler även här för som
+de andra länkarna.*/
+#aside{
+	float: right;
+	height: 80%;
+	margin-right: 2px;
+	background-color: #222;
+	width: 20%;
+}
+#aside ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+#aside ul li{
+	display: block;
+}
+#aside ul li:hover{
+	background-color: #333;
+}
+#aside ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*egentligen samma regler även här för som
+de andra länkarna. positionering för att få den 
+i botten med hjälp av bottom 0*/
+#social{
+	width: 99.6%;
+	height: 55px;
+	overflow: hidden;
+	background-color: #222;
+	margin: 3px;
+	bottom: 0;
+	text-align: center;
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul li:hover{
+	background-color: #333;
+}
+#social ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#social ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*Här kommer då css kod för normalstora skärmar och laptops.*/
+@media screen and (max-width: 1200px)
+{
+/*en wrapper för att tighta till sidan
+Som man kan se har då denna en bredd på 960px
+då denna är anpassad för de flesta bärbara datorer
+samt även många vanliga skärmar.*/
+#wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+/*satt en bestämd font för hela bodyn samt en scroll*/
+body{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll;
+	font-family: Arial;
+	font-size: 14px;
+}
+/*inget speciellt med headern(ännu)*/
+header{
+	height: 100px;
+	border: solid;
+	padding: 10px;
+}
+/*för att positionera loggan/bilden*/
+header img{
+	float: right;
+	margin: 10px;
+}
+h1{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 40px;
+}
+/*själva containern för nav, section och aside
+position är för social diven så jag kunde placera den i botten*/
+main{
+	height: 550px;
+	position: relative;
+	border: solid;
+}
+/*tar hand om hem, om oss, kontakt och sök*/
+#meny{
+	background-color: #222;
+	border: solid;
+	border-color: white;
+}
+/*för att positionera och styla listan*/
+#meny ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+/*för en horisontell menyrad*/
+#meny ul li{
+	display: inline-block;
+}
+/*få till en annan färg vid hover*/
+#meny ul li:hover{
+	background-color: #333;
+}
+/*bestämmer över färgen när man håller över
+länken men även storleken och att det ska
+vara block som visas samt att länkarna ej ska
+vara understrukna*/
+#meny ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#meny ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*för att positionera sökknappen och fältet*/
+#meny input{
+	float: right;
+	margin: 12px 0px;
+}
+#meny button{
+	float: right;
+	margin: 12px;
+	margin-left: 0px;
+}
+/*själva produktmenyn. här bestäms färgen, höjden, bredden
+men även själva positioneringen. har även gjort lite småjusteringar
+för den grafiska biten med margin-top*/
+nav{
+	display: none;
+	width: 20%;
+	height: 80%;
+	overflow: hidden;
+	float: left;
+	background-color: #222;
+	border: solid;
+	border-color: white;
+	margin-top: -2px;
+}
+/*bestämmer och positionerar över själva listan, 
+dvs kompletta datorer, datordelar samt datortillbehör*/
+nav ul{
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+/*visar länkarna i block. kommande är de samma
+som för menyn ovan*/
+nav ul li{
+	display: block;
+}
+nav ul li:hover{
+	background-color: #333;
+}
+nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*hur själva undermenyn ska se ut*/
+nav ul li:hover ul{
+	display: block;
+}
+/*submenyns färgval samt hur brett fältet
+måste vara som minst men även att submenyn ska täcka
+övriga menyn när den öppnas med position absolute
+andra estetiska justeringar för att allt ska
+"smälta ihop"*/
+nav ul ul{
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+/*samma bestämelser för submenyn som för den
+övre menyn*/
+nav ul ul li{display: block;
+}
+nav ul ul li a,visited{
+	color: #ccc;
+}
+nav ul ul li a:hover{
+	color: #099;
+}
+#nav{
+	display: block;
+	width: 20%;
+	height: 80%;
+	overflow: hidden;
+	float: left;
+	background-color: #222;
+	border: solid;
+	border-color: white;
+	margin-top: -2px;
+}
+/*bestämmer och positionerar över själva listan, 
+dvs kompletta datorer, datordelar samt datortillbehör*/
+#nav ul{
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+/*visar länkarna i block. kommande är de samma
+som för menyn ovan*/
+#nav ul li{
+	display: block;
+}
+#nav ul li:hover{
+	background-color: #333;
+}
+#nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*hur själva undermenyn ska se ut*/
+#nav ul li:hover ul{
+	display: block;
+}
+/*submenyns färgval samt hur brett fältet
+måste vara som minst men även att submenyn ska täcka
+övriga menyn när den öppnas med position absolute
+andra estetiska justeringar för att allt ska
+"smälta ihop"*/
+#nav ul ul{
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+/*samma bestämelser för submenyn som för den
+övre menyn*/
+#nav ul ul li{display: block;
+}
+#nav ul ul li a,visited{
+	color: #ccc;
+}
+#nav ul ul li a:hover{
+	color: #099;
+}
+/*mittenfältet vilket är tomt då jag inte
+har några produkter att visa ännu. bredden bestämd*/
+section{
+	width: 80%;
+	text-align: center;
+	background-color: white;
+}
+/*Detta element är gömt för 960px bredden
+likt det jag gjort för 1280px*/
+aside{
+	display: none;
+	float: right;
+	height: 80%;
+	margin-right: 2px;
+	background-color: #222;
+	width: 20%;
+}
+aside ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+aside ul li{
+	display: block;
+}
+aside ul li:hover{
+	background-color: #333;
+}
+aside ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*Det är det här elementet jag använt mej av för 960px bredd.
+Egentligen samma regler även här för som
+de andra länkarna.*/
+#aside{
+	float: right;
+	height: 80%;
+	margin-right: 2px;
+	background-color: #222;
+	width: 20%;
+}
+#aside ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+#aside ul li{
+	display: block;
+}
+#aside ul li:hover{
+	background-color: #333;
+}
+#aside ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*egentligen samma regler även här för som
+de andra länkarna. positionering för att få den 
+i botten med hjälp av bottom 0*/
+#social{
+	width: 99.6%;
+	height: 55px;
+	overflow: hidden;
+	background-color: #222;
+	margin: 3px;
+	bottom: 0;
+	text-align: center;
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul li:hover{
+	background-color: #333;
+}
+#social ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#social ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+	}
+}
+/*Denna del är anpassad för tablets och mindre laptops*/
+@media screen and (max-width: 800px)
+{
+/*en wrapper för att tighta till sidan. Som man kan se använder
+jag mej av relativa enheten % för att få till en flytande design.*/
+#wrapper{
+	width: 95%;
+	margin: 0 auto;
+}
+/*satt en bestämd font för hela bodyn samt en scroll*/
+body{
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll;
+	font-family: Arial;
+	font-size: 14px;
+}
+/*inget speciellt med headern(ännu)*/
+header{
+	height: 100px;
+	border: solid;
+	padding: 10px;
+}
+/*för att positionera loggan/bilden*/
+header img{
+	float: right;
+	margin: 10px;
+}
+h1{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 38px;
+}
+/*själva containern för nav, section och aside
+position är för social diven så jag kunde placera den i botten*/
+main{
+	height: 100%;
+	position: relative;
+	border: solid;
+}
+/*tar hand om hem, om oss, kontakt och sök*/
+#meny{
+	background-color: #222;
+	border: solid;
+	border-color: white;
+}
+/*för att positionera och styla listan*/
+#meny ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+/*för en horisontell menyrad*/
+#meny ul li{
+	display: inline-block;
+}
+/*få till en annan färg vid hover*/
+#meny ul li:hover{
+	background-color: #333;
+}
+/*bestämmer över färgen när man håller över
+länken men även storleken och att det ska
+vara block som visas samt att länkarna ej ska
+vara understrukna*/
+#meny ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#meny ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*för att positionera sökknappen och fältet*/
+#meny input{
+	float: right;
+	margin: 12px 0px;
+}
+#meny button{
+	float: right;
+	margin: 12px;
+	margin-left: 0px;
+}
+/*Denna del är då gömd för 800px bredden då
+jag har ett likadant element liggandes som 
+används för 800px bredden då 480px bredden krävde
+lite andra bestämmelser för att se bra ut och
+fungera tillfredsställande*/
+nav{
+	display:none;
+	width: 20%;
+	height: 300px;
+	overflow: hidden;
+	float: left;
+	background-color: #222;
+	border: solid;
+	border-color: white;
+	margin-top: -2px;
+}
+nav ul{
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+nav ul li{
+	display: block;
+}
+nav ul li:hover{
+	background-color: #333;
+}
+nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+nav ul li:hover ul{
+	display: block;
+}
+nav ul ul{
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+nav ul ul li{display: block;
+}
+nav ul ul li a,visited{
+	color: #ccc;
+}
+nav ul ul li a:hover{
+	color: #099;
+}
+/*Använder mej av divven nav för att styla produktmenyn
+för bredden 800px*/
+#nav{
+	display:block;
+	width: 20%;
+	height: 300px;
+	overflow: hidden;
+	float: left;
+	background-color: #222;
+	border: solid;
+	border-color: white;
+	margin-top: -2px;
+}
+/*bestämmer och positionerar över själva listan, 
+dvs kompletta datorer, datordelar samt datortillbehör*/
+#nav ul{
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+/*visar länkarna i block. kommande är de samma
+som för menyn ovan*/
+#nav ul li{
+	display: block;
+}
+#nav ul li:hover{
+	background-color: #333;
+}
+#nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*hur själva undermenyn ska se ut*/
+#nav ul li:hover ul{
+	display: block;
+}
+/*submenyns färgval samt hur brett fältet
+måste vara som minst men även att submenyn ska täcka
+övriga menyn när den öppnas med position absolute
+andra estetiska justeringar för att allt ska
+"smälta ihop"*/
+#nav ul ul{
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+/*samma bestämelser för submenyn som för den
+övre menyn*/
+#nav ul ul li{display: block;
+}
+#nav ul ul li a,visited{
+	color: #ccc;
+}
+#nav ul ul li a:hover{
+	color: #099;
+}
+/*mittenfältet vilket är tomt då jag inte
+har några produkter att visa ännu. bredden bestämd*/
+section{
+	width: 80%;
+	text-align: center;
+	background-color: white;
+}
+/*Jag använder mej av aside för 800px istället för divven.
+Ser lite annorlunda ut för aside nu då jag var tvungen
+att ändra en hel del för att snygga till för tabletformat
+bl a har jag satt clear both för att få upp menyn.*/
+aside{
+	display: block;
+	text-align: center;
+	clear: both;
+	margin-right: 2px;
+	background-color: #222;
+	margin-bottom: 3px;
+	width: 99.3%;
+	height: 8.6%
+}
+aside ul{
+	list-style-type: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+aside ul li{
+	display: inline-block;
+}
+aside ul li:hover{
+	background-color: #333;
+}
+aside ul li a,visited{
+	color: #ccc;
+	display: inline-block;
+	padding: 15px;
+	text-decoration: none;
+}
+aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*Ett pseudoelement är skapat för att få till
+elementen så att de är anpassade för olika upplösningnar.
+Detta är då "gömt" med display: none;*/
+#aside{
+	display: none;
+	float: right;
+	height: 80%;
+	margin-right: 2px;
+	background-color: #222;
+	width: 20%;
+}
+#aside ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+#aside ul li{
+	display: block;
+}
+#aside ul li:hover{
+	background-color: #333;
+}
+#aside ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*egentligen samma regler även här för som
+de andra länkarna. Enbart lite småjusteringar.*/
+#social{
+	position: relative;
+	width: 98.9%;
+	background-color: #222;
+	text-align: center;
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul{
+	list-style-type: none;
+	
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul li:hover{
+	background-color: #333;
+}
+#social ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#social ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+	}
+}
+/*Sist ut har vi så att det ser bra ut på mobiltelefoner.*/
+@media screen and (max-width: 480px)
+{
+	/*en wrapper för att tighta till sidan.
+	Har använt mej av 95% för att ta hänsyn till scrollen.*/
+#wrapper{
+	width: 95%;
+	margin: 0 auto;
+}
+/*satt en bestämd font för hela bodyn samt en scroll*/
+body{
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll;
+	font-family: Arial;
+	font-size: 14px;
+}
+/*inget speciellt med headern(ännu)*/
+header{
+	height: 100px;
+	border: solid;
+	padding: 10px;
+}
+/*för att positionera loggan/bilden*/
+header img{
+	float: right;
+	margin: 10px;
+}
+/*Justerat font size för det grafiska*/
+h1{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 35px;
+}
+/*själva containern för nav, section och aside
+position är för social diven så jag kunde placera den i botten
+I övrigt är det ingen skillnad mot tidigare bredder.*/
+main{
+	height: 100%;
+	position: relative;
+	border: solid;
+}
+/*tar hand om hem, om oss, kontakt och sök*/
+#meny{
+	background-color: #222;
+	border: solid;
+	border-color: white;
+}
+/*för att positionera och styla listan*/
+#meny ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+/*för en horisontell menyrad*/
+#meny ul li{
+	display: inline-block;
+}
+/*få till en annan färg vid hover*/
+#meny ul li:hover{
+	background-color: #333;
+}
+/*bestämmer över färgen när man håller över
+länken men även storleken och att det ska
+vara block som visas samt att länkarna ej ska
+vara understrukna*/
+#meny ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#meny ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*för att positionera sökknappen och fältet*/
+#meny input{
+	float: right;
+	margin: 12px 0px;
+}
+#meny button{
+	float: right;
+	margin: 12px;
+	margin-left: 0px;
+}
+/*själva produktmenyn. här bestäms färgen, höjden, bredden
+men även själva positioneringen. Det är då detta element jag
+använder mej av för 480px bredd. Har gjort en del justeringar
+så att det bättre passar in grafiskt för mobiltelefoner.*/
+nav{
+	display: block;
+	text-align: center;
+	clear: both;
+	background-color: #222;
+	margin-bottom: 3px;
+	width: 98.8%;
+	height: 6%
+}
+/*bestämmer och positionerar över själva listan, 
+dvs kompletta datorer, datordelar samt datortillbehör
+Dock visar den även submenyerna fastän jag vill dölja detta.*/
+nav ul{
+	display: block;
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+/*visar länkarna i block. kommande är de samma
+som för menyn ovan*/
+nav ul li{
+	display: block;
+}
+nav ul li:hover{
+	background-color: #333;
+}
+nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*hur själva undermenyn ska se ut*/
+nav ul li:hover ul{
+	display: block;
+}
+nav ul ul{
+	display: none;
+	position: relative;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+nav ul ul li{
+	display: block;
+}
+nav ul ul li a,visited{
+	color: #ccc;
+}
+nav ul ul li a:hover{
+	color: #099;
+}
+/*Lite experimenterande för att få menyn att
+fungera som jag vill. Dock utan lyckat resultat.
+Det ser godtagbart ut ändå i mitt tycke*/
+nav ul ul ul{
+	display: none;
+	position: relative;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+nav ul ul ul li{
+	display: block;
+}
+nav ul ul ul li a,visited{
+	color: #ccc;
+}
+/*Här är det ett utav de extra elementen.
+Som man kan se har jag "gömt" detta element
+med "display: none; så att det passar in för 480px bredd*/
+#nav{
+	display: none;
+	text-align: center;
+	clear: both;
+	margin-right: 2px;
+	background-color: #222;
+	margin-bottom: 3px;
+	width: 99%;
+	height: 8.6%
+}
+#nav ul{
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+
+#nav ul li{
+	display: block;
+}
+#nav ul li:hover{
+	background-color: #333;
+}
+#nav ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#nav ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+#nav ul li:hover ul{
+	display: block;
+}
+#nav ul ul{
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border: 5px solid #222;
+	border-top: 0;
+	border-left: 0;
+	min-width: 150px;
+}
+#nav ul ul li{display: block;
+}
+#nav ul ul li a,visited{
+	color: #ccc;
+}
+#nav ul ul li a:hover{
+	color: #099;
+}
+/*Har ändrat så att bredden är 99%*/
+section{
+	width: 99%;
+	text-align: center;
+	background-color: white;
+	
+}
+/*Jag använder mej av aside för 480px istället för divven.
+Ser lite annorlunda ut för aside nu då jag var tvungen
+att ändra en hel del för att snygga till för mobilformat
+bl a har jag satt clear both för att få upp menyn.*/
+aside{
+	display: block;
+	text-align: center;
+	clear: both;
+	margin-right: 2px;
+	background-color: #222;
+	margin-bottom: 3px;
+	width: 98.8%;
+	height: 8.6%
+}
+/*Som man kan se så har jag ändrat till inline block här*/
+aside ul{
+	list-style-type: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+aside ul li{
+	display: inline-block;
+}
+aside ul li:hover{
+	background-color: #333;
+}
+aside ul li a,visited{
+	color: #ccc;
+	display: inline-block;
+	padding: 15px;
+	text-decoration: none;
+}
+aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+#aside{
+	display: none;
+	float: right;
+	height: 80%;
+	margin-right: 2px;
+	background-color: #222;
+	width: 20%;
+}
+#aside ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+#aside ul li{
+	display: block;
+}
+#aside ul li:hover{
+	background-color: #333;
+}
+#aside ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#aside ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+/*Har inte ändrat någonting i denna meny*/
+#social{
+	position: relative;
+	width: 98.8%;
+	margin-right: 2px;
+	background-color: #222;
+	
+	text-align: center;
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul{
+	list-style-type: none;
+	
+}
+#social ul li{
+	display: inline-block;
+}
+#social ul li:hover{
+	background-color: #333;
+}
+#social ul li a,visited{
+	color: #ccc;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+#social ul li a:hover{
+	color: #ccc;
+	text-decoration: none;
+	}
+}
